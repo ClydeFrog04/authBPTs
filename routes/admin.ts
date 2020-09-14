@@ -1,7 +1,7 @@
 import express from "express";
 export const adminRouter = express.Router();
 import * as usersModel from "../models/users";
-import validateUserId from "../middleware/validateUserId";
+import {validateUserId} from "../middleware/validateUserId";
 
 /******************************************************************************
  *                      Get all users - "GET /admin/users"

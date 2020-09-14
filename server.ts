@@ -8,7 +8,7 @@ import {validateToken} from "./auth/validateToken";
 
 import {indexRouter} from "./routes";
 import {usersRouter} from "./routes/users";
-import authRouter from "./auth/auth-router";
+import {authRouter} from "./auth/auth-router";
 import {adminRouter} from "./routes/admin";
 
 export const server = express();
