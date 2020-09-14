@@ -2,16 +2,16 @@ import express from "express";
 import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
-import validateAdmin from "./auth/validateAdmin";
+import {validateAdmin} from "./auth/validateAdmin";
 import {validateToken} from "./auth/validateToken";
 
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const authRouter = require("./auth/auth-router");
-const adminRouter = require("./routes/admin");
+import {indexRouter} from "./routes";
+import {usersRouter} from "./routes/users";
+import authRouter from "./auth/auth-router";
+import {adminRouter} from "./routes/admin";
 
-const server = express();
+export const server = express();
 
 server.use(logger("dev"));
 server.use(express.json());
@@ -23,5 +23,3 @@ server.use("/", indexRouter);
 server.use("/auth", authRouter);
 server.use("/users", validateToken(), usersRouter);
 server.use("/admin", validateAdmin(), adminRouter);
-
-module.exports = server;

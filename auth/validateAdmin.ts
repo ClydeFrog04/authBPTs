@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import {Request, Response, NextFunction} from "express";
 
-module.exports = () => (req: Request, res: Response, next: NextFunction) => {
+export const validateAdmin = () => (req: Request, res: Response, next: NextFunction) => {
     console.log("validating admin");
     try {
         const token = req.cookies.token || req.body.token;
